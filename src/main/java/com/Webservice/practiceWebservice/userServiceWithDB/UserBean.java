@@ -1,23 +1,32 @@
-package com.Webservice.practiceWebservice.userServicePkg;
+package com.Webservice.practiceWebservice.userServiceWithDB;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
 
-public class User	{
+@Entity
+public class UserBean	{
 	
+	@Id
+	@GeneratedValue
 	private Integer Id;
-    @Size(min=4)
+	
+	@Size(min=2,message="name should have morethan 2 character")
 	private String name;
+	
 	@Past
 	private Date birthDate;
 	
-	protected User()	{
+	protected UserBean()	{
 		
 	}
-	
-	public User(Integer id, String name, Date birthDate) {
+
+	public UserBean(Integer id, @Size(min = 2, message = "name should have morethan 2 character") String name,
+			@Past Date birthDate) {
 		super();
 		Id = id;
 		this.name = name;
@@ -47,11 +56,5 @@ public class User	{
 	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
-
-	@Override
-	public String toString() {
-		return String.format("User [Id=" + Id + ", name=" + name + ", birthDate=" + birthDate + "]");
-	}
-	
 	
 }

@@ -1,10 +1,16 @@
 package com.Webservice.practiceWebservice;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.hateoas.client.LinkDiscoverer;
+import org.springframework.hateoas.client.LinkDiscoverers;
+import org.springframework.hateoas.mediatype.collectionjson.CollectionJsonLinkDiscoverer;
+import org.springframework.plugin.core.SimplePluginRegistry;
 
 import io.swagger.annotations.Contact;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -26,6 +32,13 @@ public class SwaggerConfig {
 				.produces(consumesAndProduces)
 				.pathMapping("/");
 	}
+	
+	@Bean
+	public LinkDiscoverers discovers() {    
+	    List<LinkDiscoverer> plugins = new ArrayList<>();
+	    plugins.add(new CollectionJsonLinkDiscoverer());
+	    return new LinkDiscoverers(SimplePluginRegistry.create(plugins));  
+	} 
 	
 	private ApiInfo metadata() {
 		return new ApiInfoBuilder()
