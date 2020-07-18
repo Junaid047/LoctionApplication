@@ -8,10 +8,10 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.Webservice</groupId>
-	<artifactId>practiceWebservice</artifactId>
+	<groupId>com.location.app</groupId>
+	<artifactId>LoctionApplication</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>practiceWebservice</name>
+	<name>LoctionApplication</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -30,6 +30,11 @@
 	</dependency>
 	
 	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+	</dependency>
+	
+	<dependency>
     	<groupId>org.apache.tomcat.embed</groupId>
     	<artifactId>tomcat-embed-jasper</artifactId>
     	<scope>provided</scope>
@@ -38,6 +43,12 @@
 	<dependency>
     	<groupId>org.springframework.boot</groupId>
     	<artifactId>spring-boot-devtools</artifactId>
+	</dependency>
+	
+	<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-annotations</artifactId>
+    <version>2.9.0.pr2</version>
 	</dependency>
 		
 	<dependency>
