@@ -7,7 +7,7 @@
 <body>
 <h2>Create Location</h2>
 
-<form action="saveLoc" mehtod="post">
+<form action="saveLoc" method="post">
 	<pre>
 	Id: <input type="text" name="id"/>
 	Code: <input type="text" name="code"/>
